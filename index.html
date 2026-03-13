@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Me Achieve Dental Greatness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#00F0FF',
+                            pink: '#FF003C',
+                            yellow: '#FCEE09',
+                            dark: '#0A0A0A',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slight': 'bounce-minimal 4s ease-in-out infinite',
+                        'gradient-x': 'gradient-x 3s ease infinite',
+                    },
+                    keyframes: {
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            },
+                        },
+                        'bounce-minimal': {
+                            '0%, 100%': { transform: 'translateY(-2%)' },
+                            '50%': { transform: 'translateY(2%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0A0A0A;
+            color: white;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.6), 0 0 30px rgba(0, 240, 255, 0.4);
+        }
+        .text-glow-pink {
+            text-shadow: 0 0 15px rgba(255, 0, 60, 0.6), 0 0 30px rgba(255, 0, 60, 0.4);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px -5px rgba(252, 238, 9, 0.5);
+            z-index: 20;
+        }
+        .tier-3-hover:hover {
+            box-shadow: 0 20px 40px -5px rgba(255, 0, 60, 0.6);
+        }
+        /* Hide scrollbar for cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FF003C; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00F0FF; 
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-pink selection:text-white">
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex flex-col items-center justify-center text-center px-4 py-20 overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-brand-pink rounded-full mix-blend-screen filter blur-[150px] opacity-20 animate-pulse-slow"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40rem] h-[40rem] bg-brand-blue rounded-full mix-blend-screen filter blur-[150px] opacity-20 animate-pulse-slow" style="animation-delay: 2s;"></div>
+        
+        <div class="z-10 max-w-5xl mx-auto flex flex-col items-center">
+            <div class="inline-block px-5 py-2 mb-8 rounded-full border-2 border-brand-yellow text-brand-yellow font-bold text-xs md:text-sm tracking-[0.2em] uppercase backdrop-blur-sm shadow-[0_0_15px_rgba(252,238,9,0.3)] transform -rotate-2">
+                🚨 Urgent Humanitarian Crisis 🚨
+            </div>
+            
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-black mb-6 leading-[1.1] tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-brand-blue via-brand-yellow to-brand-pink animate-gradient-x px-4">
+                Help Me Achieve <br/>
+                <span class="text-white text-glow block mt-2">Dental Greatness.</span>
+            </h1>
+            
+            <p class="text-xl md:text-3xl font-light max-w-3xl mb-12 text-gray-300 leading-relaxed px-4">
+                My manual toothbrush is practically a stick. I need <span class="inline-block bg-brand-yellow text-black font-black px-2 py-1 transform -rotate-3 text-2xl md:text-4xl shadow-[4px_4px_0_#FF003C] mx-1">₹519</span> for a spinning piece of plastic that vibrates. <br/><span class="text-brand-pink font-bold mt-4 block">Be part of the revolution.</span>
+            </p>
+            
+            <div class="relative w-64 md:w-80 mb-6 mt-4 animate-bounce-slight flex items-center justify-center overflow-visible group" id="secret-admin-trigger">
+               <!-- Actual Toothbrush Image -->
+               <img src="assets/toothbrush.jpg" id="toothbrush-img" alt="Majestic Glowing Toothbrush" class="object-contain w-full h-auto max-h-[500px] rounded-3xl drop-shadow-[0_0_30px_rgba(0,240,255,0.3)] transition duration-700 hover:scale-105 hover:drop-shadow-[0_0_40px_rgba(252,238,9,0.6)] cursor-pointer"/>
+               <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-brand-yellow opacity-10 blur-[60px] rounded-full -z-10 group-hover:opacity-30 transition-opacity"></div>
+            </div>
+            <p class="text-xs md:text-sm text-gray-500 uppercase tracking-[0.3em] font-bold mt-2">✨ Artist's Rendition of The Future ✨</p>
+        </div>
+        
+        <a href="#donate" class="absolute bottom-8 animate-bounce text-zinc-500 hover:text-brand-yellow transition-colors cursor-pointer p-4">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </a>
+    </header>
+
+    <!-- The "Sad Story" Section -->
+    <section class="py-32 px-4 bg-zinc-900 border-y-2 border-zinc-800 relative z-10 overflow-hidden">
+        <!-- Background Grid -->
+        <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 50px 50px;"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-20">
+            <h2 class="text-5xl md:text-7xl font-black mb-12 text-brand-pink text-glow-pink uppercase tracking-tighter">The Tragedy</h2>
+            
+            <div class="bg-black p-10 md:p-16 rounded-[3rem] border border-zinc-700 shadow-2xl relative transform transition hover:scale-[1.01] duration-500">
+                <div class="absolute -top-8 -left-2 md:-left-8 text-8xl md:text-9xl text-brand-yellow opacity-40 font-serif leading-none">"</div>
+                
+                <p class="text-2xl md:text-4xl text-gray-300 leading-snug font-light relative z-10">
+                    Every day, millions of people brush manually like peasants. 
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-white font-black block mt-6 mb-6 text-4xl md:text-6xl transform -skew-x-6">I am one of them.</span> 
+                    For less than the price of a fancy coffee, you can change one life. <br/><span class="text-brand-yellow font-black mt-4 block underline decoration-brand-pink underline-offset-8">Mine.</span>
+                </p>
+                
+                <div class="absolute -bottom-16 -right-2 md:-right-8 text-8xl md:text-9xl text-brand-yellow opacity-40 font-serif leading-none">"</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Tracker -->
+    <section class="py-32 px-4 max-w-5xl mx-auto text-center relative z-10" id="progress">
+        <h2 class="text-5xl md:text-6xl font-black mb-16 uppercase tracking-tight">Campaign Progress</h2>
+        
+        <div class="bg-zinc-900 p-8 md:p-12 rounded-[2.5rem] border border-zinc-800 relative overflow-hidden shadow-2xl">
+            <!-- Glow effect behind bar -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-32 bg-brand-yellow opacity-10 blur-[100px] rounded-full"></div>
+            
+            <div class="relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-8 gap-4">
+                    <div class="text-left">
+                        <span class="text-6xl md:text-8xl font-black text-brand-pink tracking-tighter drop-shadow-lg" id="total-raised">₹0</span>
+                        <span class="text-2xl text-gray-400 font-bold ml-2 uppercase tracking-widest">raised</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-2xl text-gray-500 font-medium uppercase tracking-widest block mb-1">Goal</span>
+                        <span class="text-4xl md:text-5xl font-black text-white">₹519</span>
+                    </div>
+                </div>
+                
+                <!-- Progress Bar Track -->
+                <div class="w-full h-12 md:h-16 bg-black rounded-full border-4 border-zinc-800 overflow-hidden relative shadow-inner">
+                    <!-- The progress bar fill (0%) -->
+                    <div id="progress-bar" class="h-full bg-gradient-to-r from-brand-pink via-brand-yellow to-brand-blue w-[0%] rounded-full shadow-[0_0_20px_rgba(252,238,9,0.8)] transition-all duration-[2000ms] ease-out flex items-center justify-end pr-2">
+                        <div class="w-3 h-3 bg-white rounded-full animate-ping opacity-0" id="progress-dot"></div>
+                    </div>
+                    
+                    <!-- 0% marker text absolutely positioned inside track -->
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <span class="font-black text-zinc-600 text-xl tracking-widest uppercase transition-colors duration-500" id="percent-funded-text">0% funded</span>
+                    </div>
+                </div>
+                
+                <p class="mt-8 text-2xl font-bold text-brand-yellow animate-pulse flex items-center justify-center gap-3" id="snarky-progress-note">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Currently at 0%. My teeth are crying.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hall of Fame (Recent Donors) -->
+    <section class="py-16 px-4 bg-zinc-950 border-y-4 border-brand-blue relative z-10 hidden" id="donors-section">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-4xl md:text-5xl font-black mb-10 text-center uppercase tracking-tighter"><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-white">Hall of Angels</span> 😇</h3>
+            
+            <div class="bg-black border-2 border-zinc-800 rounded-[2rem] p-6 md:p-10 shadow-[0_0_40px_rgba(0,240,255,0.1)]">
+                <ul id="donors-list" class="space-y-4 max-h-96 overflow-y-auto pr-4">
+                    <!-- Donors will be injected here via JS -->
+                </ul>
+            </div>
+            <p class="text-center text-zinc-600 font-bold uppercase tracking-widest text-sm mt-6">These beautiful people secured their place in dental history.</p>
+        </div>
+    </section>
+
+    <!-- Donation / QR Section -->
+    <section id="donate" class="py-32 px-4 bg-brand-blue text-black relative overflow-hidden">
+        <!-- Abstract pattern background -->
+        <div class="absolute inset-0 opacity-20 mix-blend-multiply" style="background-image: radial-gradient(circle at 4px 4px, black 2px, transparent 0); background-size: 40px 40px;"></div>
+        
+        <div class="max-w-6xl mx-auto relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16">
+            
+            <!-- QR Code Box -->
+            <div class="w-full lg:w-5/12 flex flex-col items-center xl:items-start text-center xl:text-left">
+                <div class="mb-10">
+                    <h2 class="text-6xl md:text-7xl font-black mb-0 uppercase tracking-tighter transform -rotate-3 inline-block bg-black text-brand-yellow px-4 py-2">Scan to</h2>
+                    <br/>
+                    <h2 class="text-6xl md:text-7xl font-black mt-2 uppercase tracking-tighter transform rotate-2 inline-block bg-white text-brand-pink px-4 py-2 border-4 border-black border-dashed">Sponsor</h2>
+                    <br/>
+                    <h2 class="text-6xl md:text-7xl font-black mt-2 uppercase tracking-tighter transform -rotate-1 inline-block">a Bristle</h2>
+                </div>
+                
+                <div class="bg-white p-8 rounded-[2rem] shadow-[20px_20px_0px_#0A0A0A] border-8 border-black transform transition hover:scale-105 hover:-rotate-1 duration-300 w-full max-w-sm mx-auto xl:mx-0 relative">
+                    <!-- Over the top badge -->
+                    <div class="absolute -top-6 -right-6 bg-brand-pink text-white font-black uppercase text-lg px-4 py-4 rounded-full border-4 border-black transform rotate-12 shadow-[5px_5px_0_#0A0A0A] z-20 flex items-center justify-center w-24 h-24 text-center leading-tight">
+                        Do It <br/>Now!
+                    </div>
+                    
+                    <div class="aspect-square bg-gray-100 border-4 border-dashed border-gray-300 flex items-center justify-center rounded-2xl relative overflow-hidden group">
+                        <!-- Abstract QR placeholder background -->
+                        <div class="absolute inset-4 grid grid-cols-5 grid-rows-5 gap-1 opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none">
+                            <div class="bg-black col-span-2 row-span-2"></div><div class="bg-black"></div><div class="bg-black col-span-2 row-span-2"></div>
+                            <div class="bg-black"></div><div class="bg-black"></div>
+                            <div class="bg-black col-span-5 row-span-1"></div>
+                            <div class="bg-black col-span-2 row-span-2"></div><div class="bg-black"></div><div class="bg-black col-span-2"></div>
+                            <div class="bg-black col-span-2"></div>
+                        </div>
+                        
+                        <!-- The actual QR Image inside the fancy badge -->
+                        <div class="relative z-10 box-border flex flex-col items-center justify-center text-center p-3 bg-white/90 backdrop-blur-md rounded-xl border-2 border-black border-dashed m-3 transform group-hover:scale-110 transition-transform shadow-[5px_5px_0_#FFF,10px_10px_0_#0A0A0A]">
+                            <img src="assets/qr-code2.jpg" alt="Sponsor QR Code" class="w-[85%] h-[85%] object-contain mix-blend-multiply"/>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center bg-gray-100 p-4 rounded-xl border-2 border-gray-300 cursor-text select-all">
+                        <p class="text-xs font-black text-gray-400 uppercase tracking-widest mb-1">Official UPI ID</p>
+                        <p class="text-2xl font-black text-black break-all selection:bg-brand-pink selection:text-white">vjoshi.ytl@okaxis</p>
+                    </div>
+                    
+                    <p class="mt-6 text-center text-sm font-bold text-black bg-brand-yellow placeholder-black p-3 rounded-lg border-2 border-black transform -rotate-1 shadow-[4px_4px_0_#0A0A0A]">
+                        ✨ Note: Donate and get your name added on the Hall of Angels!
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Tiers -->
+            <div class="w-full lg:w-7/12">
+                <h3 class="text-4xl font-black mb-10 text-black bg-white inline-block px-6 py-3 transform -skew-x-12 border-4 border-black shadow-[8px_8px_0px_#FF003C]">Suggested Tiers:</h3>
+                
+                <div class="flex flex-col gap-8">
+                    
+                    <!-- Tier 1 -->
+                    <div class="bg-white text-black p-8 rounded-3xl border-4 border-black shadow-[10px_10px_0px_#0A0A0A] card-hover cursor-pointer transition-all duration-300">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-3">
+                            <h4 class="text-3xl font-black uppercase tracking-tight">The "I Guess I Care" Tier</h4>
+                            <span class="text-5xl font-black text-brand-pink mt-2 md:mt-0">₹10</span>
+                        </div>
+                        <p class="text-lg text-gray-600 font-bold">Buys me exactly one bristle. Bless your heart.</p>
+                    </div>
+                    
+                    <!-- Tier 2 -->
+                    <div class="bg-black text-white p-8 rounded-3xl border-4 border-black shadow-[10px_10px_0px_white] card-hover cursor-pointer transition-all duration-300 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-brand-pink opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-3 relative z-10">
+                            <h4 class="text-3xl font-black uppercase tracking-tight">The "Battery Charger" Tier</h4>
+                            <span class="text-5xl font-black text-brand-yellow mt-2 md:mt-0">₹50</span>
+                        </div>
+                        <p class="text-lg text-gray-300 font-bold relative z-10">Lets me charge it for 3 minutes. Enough for half a molar.</p>
+                    </div>
+                    
+                    <!-- Tier 3 -->
+                    <div class="bg-brand-yellow text-black p-8 rounded-3xl border-4 border-black shadow-[15px_15px_0px_#FF003C] tier-3-hover cursor-pointer transition-all duration-300 transform md:scale-[1.03] z-10 relative">
+                        <div class="absolute -top-4 -right-4 bg-brand-pink text-white text-sm font-black px-6 py-2 rounded-full uppercase tracking-widest transform rotate-6 border-4 border-black shadow-[4px_4px_0_#0A0A0A] animate-pulse">
+                            Highly Recommended
+                        </div>
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-3">
+                            <h4 class="text-3xl md:text-4xl font-black uppercase tracking-tighter">The "God Tier Sponsor"</h4>
+                            <span class="text-5xl md:text-6xl font-black text-black drop-shadow-md mt-2 md:mt-0">₹519</span>
+                        </div>
+                        <p class="text-xl text-gray-800 font-black">You bought the whole thing. I will legally name my toothbrush after you.</p>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-zinc-500 py-20 px-4 border-t-8 border-brand-pink text-center relative overflow-hidden">
+        <div class="max-w-3xl mx-auto relative z-10">
+            <h5 class="text-white font-black mb-6 uppercase tracking-[0.3em] text-xl">⚠️ Official Disclaimer ⚠️</h5>
+            <div class="border-2 border-zinc-800 bg-zinc-900/50 p-8 rounded-3xl">
+                <p class="text-lg leading-relaxed font-bold">
+                    This is entirely a joke, but if you actually scan the QR code and send me money, <span class="text-brand-yellow">I'm absolutely keeping it, Thanking You and buying the toothbrush.</span> No refunds.
+                </p>
+            </div>
+            <p class="mt-12 text-sm font-bold uppercase tracking-widest text-zinc-700">Built with desperation by someone who really, really wants that toothbrush.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification for Donors -->
+    <div id="donor-toast" class="fixed top-8 right-8 bg-black border-4 border-brand-blue text-white p-6 rounded-2xl shadow-[10px_10px_0_#0A0A0A] transform translate-x-[150%] transition-transform duration-500 z-50 flex items-center gap-4 max-w-sm">
+        <div class="text-4xl animate-bounce">🎉</div>
+        <div>
+            <p class="text-xs text-brand-yellow font-black uppercase tracking-widest mb-1">New Sponsor</p>
+            <p class="font-bold text-xl leading-tight"><span id="toast-name" class="text-brand-pink">Someone</span> just donated <span id="toast-amount" class="text-brand-blue font-black">₹0</span>!</p>
+        </div>
+    </div>
+
+    <!-- Hidden Admin Panel Modal -->
+    <div id="admin-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-zinc-900 border-4 border-brand-pink p-8 rounded-3xl max-w-md w-full mx-4 shadow-[15px_15px_0_#FF003C] transform scale-95 transition-transform duration-300" id="admin-modal-content">
+            <h3 class="text-3xl font-black mb-6 text-white uppercase tracking-tighter border-b-2 border-zinc-800 pb-4">Admin: Add Donation</h3>
+            
+            <div class="mb-4">
+                <label class="block text-brand-yellow font-bold uppercase tracking-widest text-xs mb-2">Donor Name</label>
+                <input type="text" id="admin-donor-name" class="w-full bg-black border-2 border-zinc-700 text-white rounded-xl p-4 focus:outline-none focus:border-brand-blue transition-colors font-bold text-xl" placeholder="E.g., Mom">
+            </div>
+            
+            <div class="mb-8">
+                <label class="block text-brand-yellow font-bold uppercase tracking-widest text-xs mb-2">Amount (₹)</label>
+                <input type="number" id="admin-donation-amount" class="w-full bg-black border-2 border-zinc-700 text-white rounded-xl p-4 focus:outline-none focus:border-brand-blue transition-colors font-black text-2xl" placeholder="50" min="1">
+            </div>
+            
+            <div class="flex gap-4">
+                <button id="admin-cancel" class="flex-1 bg-zinc-800 text-white font-bold py-4 rounded-xl border-2 border-zinc-700 hover:bg-zinc-700 transition">Cancel</button>
+                <button id="admin-submit" class="flex-1 bg-brand-pink text-white font-black uppercase tracking-widest py-4 rounded-xl border-2 border-black shadow-[4px_4px_0_#0A0A0A] hover:translate-y-1 hover:shadow-[2px_2px_0_#0A0A0A] transition">Add It!</button>
+            </div>
+            <button id="admin-reset" class="w-full mt-4 bg-red-900/50 text-red-500 font-bold py-2 rounded-xl text-sm border-2 border-red-900/50 hover:bg-red-900 transition">Hard Reset Campaign</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const GOAL = 519;
+            const bar = document.getElementById('progress-bar');
+            const dot = document.getElementById('progress-dot');
+            const totalText = document.getElementById('total-raised');
+            const percentText = document.getElementById('percent-funded-text');
+            const snarkyNote = document.getElementById('snarky-progress-note');
+            const donorsSection = document.getElementById('donors-section');
+            const donorsList = document.getElementById('donors-list');
+            
+            // State
+            let donations = [];
+            try {
+                const stored = localStorage.getItem('toothbrushDonationsLog');
+                if (stored) {
+                    donations = JSON.parse(stored);
+                }
+            } catch (e) {
+                console.error("Could not parse donations.");
+            }
+            
+            let currentTotal = donations.reduce((sum, d) => sum + parseInt(d.amount), 0);
+            
+            // Initialization
+            updateUI();
+            renderDonors();
+            
+            // ---- UI Logic ----
+            function updateUI(animate = true) {
+                const percentage = Math.min((currentTotal / GOAL) * 100, 100);
+                
+                totalText.innerText = `₹${currentTotal}`;
+                
+                percentText.innerText = `${Math.floor(percentage)}% funded`;
+                if(percentage > 50) percentText.classList.add('text-white');
+                else percentText.classList.remove('text-white');
+                
+                if (currentTotal === 0) {
+                     snarkyNote.innerHTML = `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Currently at 0%. My teeth are crying.`;
+                } else if (percentage < 30) {
+                     snarkyNote.innerHTML = `Wait, someone actually donated?! Thank you!`;
+                } else if (percentage < 70) {
+                     snarkyNote.innerHTML = `Halfway to brushing like a king!`;
+                } else if (percentage < 100) {
+                     snarkyNote.innerHTML = `Almost there! The plaque is trembling in fear.`;
+                } else {
+                     snarkyNote.innerHTML = `WE DID IT! 🎉 I will remember you all when I have a sparkling smile!`;
+                }
+
+                if(animate) {
+                    setTimeout(() => {
+                        bar.style.width = `${Math.max(percentage, 3)}%`;
+                        if(currentTotal > 0) dot.classList.remove('opacity-0');
+                    }, 100);
+                } else {
+                    bar.style.width = `${Math.max(percentage, 3)}%`;
+                    if(currentTotal > 0) dot.classList.remove('opacity-0');
+                }
+            }
+
+            function renderDonors() {
+                if (donations.length === 0) {
+                    donorsSection.classList.add('hidden');
+                    return;
+                }
+                
+                donorsSection.classList.remove('hidden');
+                donorsList.innerHTML = '';
+                
+                // Reverse to show newest on top
+                [...donations].reverse().forEach(donor => {
+                    const li = document.createElement('li');
+                    li.className = "flex justify-between items-center bg-zinc-900 border-2 border-zinc-800 p-4 rounded-xl hover:border-brand-blue transition-colors";
+                    li.innerHTML = `
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-pink to-brand-blue flex items-center justify-center text-xl shadow-[0_0_10px_rgba(0,240,255,0.3)]">👑</div>
+                            <div>
+                                <h5 class="font-black text-white text-lg">${donor.name}</h5>
+                                <p class="text-xs text-zinc-500 uppercase font-bold tracking-widest">${new Date(donor.date).toLocaleDateString()}</p>
+                            </div>
+                        </div>
+                        <div class="text-2xl font-black text-brand-yellow drop-shadow-md">₹${donor.amount}</div>
+                    `;
+                    donorsList.appendChild(li);
+                });
+            }
+
+            function showToast(name, amount) {
+                const toast = document.getElementById('donor-toast');
+                document.getElementById('toast-name').innerText = name;
+                document.getElementById('toast-amount').innerText = `₹${amount}`;
+                
+                toast.classList.remove('translate-x-[150%]');
+                
+                setTimeout(() => {
+                    toast.classList.add('translate-x-[150%]');
+                }, 4000);
+            }
+
+            // ---- Admin Panel Logic ----
+            const adminTrigger = document.getElementById('secret-admin-trigger');
+            const adminModal = document.getElementById('admin-modal');
+            const adminModalContent = document.getElementById('admin-modal-content');
+            
+            adminTrigger.addEventListener('dblclick', () => {
+                adminModal.classList.remove('opacity-0', 'pointer-events-none');
+                setTimeout(() => adminModalContent.classList.remove('scale-95'), 10);
+            });
+            
+            const closeAdmin = () => {
+                adminModalContent.classList.add('scale-95');
+                setTimeout(() => adminModal.classList.add('opacity-0', 'pointer-events-none'), 300);
+                document.getElementById('admin-donor-name').value = '';
+                document.getElementById('admin-donation-amount').value = '';
+            };
+            
+            document.getElementById('admin-cancel').addEventListener('click', closeAdmin);
+            adminModal.addEventListener('click', (e) => {
+                if(e.target === adminModal) closeAdmin();
+            });
+
+            document.getElementById('admin-submit').addEventListener('click', () => {
+                const name = document.getElementById('admin-donor-name').value || 'Anonymous Angel';
+                const amount = parseInt(document.getElementById('admin-donation-amount').value);
+                
+                if (amount && amount > 0) {
+                    donations.push({
+                        name: name,
+                        amount: amount,
+                        date: new Date().toISOString()
+                    });
+                    
+                    localStorage.setItem('toothbrushDonationsLog', JSON.stringify(donations));
+                    currentTotal += amount;
+                    
+                    updateUI();
+                    renderDonors();
+                    closeAdmin();
+                    setTimeout(() => showToast(name, amount), 500);
+                } else {
+                    alert('Please enter a valid amount.');
+                }
+            });
+
+            document.getElementById('admin-reset').addEventListener('click', () => {
+                if(confirm('Are you sure you want to reset all donations?')) {
+                    donations = [];
+                    currentTotal = 0;
+                    localStorage.removeItem('toothbrushDonationsLog');
+                    updateUI();
+                    renderDonors();
+                    closeAdmin();
+                }
+            });
+
+            // --- Fake "Attempt to donate" click features on static tiers --
+            const tiers = document.querySelectorAll('.card-hover, .tier-3-hover');
+            tiers.forEach(tier => {
+                tier.addEventListener('click', function(e) {
+                    const money = document.createElement('div');
+                    money.innerText = '💸';
+                    money.className = 'absolute text-4xl pointer-events-none transition-all duration-1000 ease-out z-50';
+                    money.style.left = `${e.clientX}px`;
+                    money.style.top = `${e.clientY}px`;
+                    document.body.appendChild(money);
+                    
+                    setTimeout(() => {
+                        money.style.transform = `translateY(-150px) scale(1.5) rotate(${Math.random() * 40 - 20}deg)`;
+                        money.style.opacity = '0';
+                    }, 10);
+                    
+                    setTimeout(() => money.remove(), 1000);
+
+                    setTimeout(() => {
+                        alert(`If only it were that easy! Scan the QR above to actually sponsor this humanitarian effort.`);
+                    }, 100);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
