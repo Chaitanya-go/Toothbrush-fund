@@ -346,20 +346,17 @@
             
             // State
             let donations = [];
-            try {
-                const stored = localStorage.getItem('toothbrushDonationsLog');
-                if (stored) {
-                    donations = JSON.parse(stored);
-                }
-            } catch (e) {
-                console.error("Could not parse donations.");
-            }
+            let currentTotal = 0;
             
-            let currentTotal = donations.reduce((sum, d) => sum + parseInt(d.amount), 0);
+            // Configuration
+            const API_URL = '/api/donations';
             
-            // Initialization
-            updateUI();
-            renderDonors();
+            // Fetch initial data
+            fetchDonations().then(() => {
+                updateUI();
+                renderDonors();
+                startPolling();
+            });
             
             // ---- UI Logic ----
             function updateUI(animate = true) {
@@ -433,6 +430,39 @@
                 }, 4000);
             }
 
+            // ---- API Integration ----
+            async function fetchDonations() {
+                try {
+                    const response = await fetch(API_URL);
+                    if (response.ok) {
+                        const newDonations = await response.json();
+                        // Check if new donations were added
+                        if (newDonations.length > donations.length && donations.length > 0) {
+                            // Find the newest donation and show toast (simplified for polling purpose)
+                            const newest = newDonations[newDonations.length - 1];
+                            // Check if this came from another client by checking if it's already in our state
+                            if (!donations.some(d => d.date === newest.date && d.name === newest.name)) {
+                                showToast(newest.name, newest.amount);
+                            }
+                        }
+                        
+                        donations = newDonations;
+                        currentTotal = donations.reduce((sum, d) => sum + parseInt(d.amount), 0);
+                    }
+                } catch (error) {
+                    console.error("Error fetching donations:", error);
+                }
+            }
+
+            function startPolling() {
+                // Poll every 5 seconds
+                setInterval(async () => {
+                    await fetchDonations();
+                    updateUI(false); // Update without resetting animation from 0
+                    renderDonors();
+                }, 5000);
+            }
+
             // ---- Admin Panel Logic ----
             const adminTrigger = document.getElementById('secret-admin-trigger');
             const adminModal = document.getElementById('admin-modal');
@@ -455,37 +485,61 @@
                 if(e.target === adminModal) closeAdmin();
             });
 
-            document.getElementById('admin-submit').addEventListener('click', () => {
+            document.getElementById('admin-submit').addEventListener('click', async () => {
                 const name = document.getElementById('admin-donor-name').value || 'Anonymous Angel';
                 const amount = parseInt(document.getElementById('admin-donation-amount').value);
                 
                 if (amount && amount > 0) {
-                    donations.push({
+                    const newDonation = {
                         name: name,
                         amount: amount,
                         date: new Date().toISOString()
-                    });
-                    
-                    localStorage.setItem('toothbrushDonationsLog', JSON.stringify(donations));
-                    currentTotal += amount;
-                    
-                    updateUI();
-                    renderDonors();
-                    closeAdmin();
-                    setTimeout(() => showToast(name, amount), 500);
+                    };
+
+                    try {
+                        const response = await fetch(API_URL, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(newDonation)
+                        });
+
+                        if (response.ok) {
+                            // Optimistically update
+                            donations.push(newDonation);
+                            currentTotal += amount;
+                            
+                            updateUI();
+                            renderDonors();
+                            closeAdmin();
+                            setTimeout(() => showToast(name, amount), 500);
+                        } else {
+                            alert('Failed to save donation on server.');
+                        }
+                    } catch (error) {
+                        console.error('Error saving donation:', error);
+                        alert('Error communicating with server.');
+                    }
                 } else {
                     alert('Please enter a valid amount.');
                 }
             });
 
-            document.getElementById('admin-reset').addEventListener('click', () => {
+            document.getElementById('admin-reset').addEventListener('click', async () => {
                 if(confirm('Are you sure you want to reset all donations?')) {
-                    donations = [];
-                    currentTotal = 0;
-                    localStorage.removeItem('toothbrushDonationsLog');
-                    updateUI();
-                    renderDonors();
-                    closeAdmin();
+                    try {
+                        const response = await fetch(`${API_URL}/reset`, { method: 'POST' });
+                        if (response.ok) {
+                            donations = [];
+                            currentTotal = 0;
+                            updateUI();
+                            renderDonors();
+                            closeAdmin();
+                        } else {
+                            alert('Failed to reset donations.');
+                        }
+                    } catch (error) {
+                        console.error('Error resetting donations:', error);
+                    }
                 }
             });
 
