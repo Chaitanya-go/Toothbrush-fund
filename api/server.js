@@ -5,12 +5,12 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const DATA_FILE = path.join(__dirname, 'donations.json');
+const DATA_FILE = path.join(__dirname, '..', 'donations.json');
 
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(__dirname)); // Serve index.html and assets
+app.use(express.static(path.join(__dirname, '..'))); // Serve index.html and assets from parent directory
 
 // Load donations from file or return empty array
 const loadDonations = () => {
