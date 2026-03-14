@@ -2,10 +2,10 @@
   "name": "toothbrush-fund",
   "version": "1.0.0",
   "description": "A donation tracker for toothbrush fund",
-  "main": "server.js",
+  "main": "api/server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node api/server.js",
+    "dev": "node api/server.js"
   },
   "dependencies": {
     "express": "^4.18.2",
