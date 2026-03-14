@@ -67,6 +67,12 @@ app.post('/api/donations/reset', (req, res) => {
     res.json({ message: 'Donations reset successfully' });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
-});
+// For Vercel deployment
+module.exports = app;
+
+// For local development
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server is running at http://localhost:${PORT}`);
+    });
+}
